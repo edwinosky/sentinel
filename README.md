@@ -138,7 +138,7 @@ Go back into your ADV2 root directory:
 
 Run:
 
-    ./adevplus20-cli masternode debug
+    ./adevplus20-cli masternode status
 
 You should see the message “Masternode successfully started.”. If you have followed all the steps outlined in the guide accurately and achieved this result - this is it, you've made it. Congratulations!
 
