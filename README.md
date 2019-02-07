@@ -65,7 +65,7 @@ This is exactly what we want to see at this stage.
 If the wallet has been resynched alreaedy, you will see no output which is what you want to see and it means you can skip the next sync step.
 
 
-## 4. Check That Your Vivo Wallet is Synced 
+## 4. Check That Your ADV2 Wallet is Synced 
 
 Go back into your root Vivo directory, then check the status of your sync:
 
