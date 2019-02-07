@@ -51,7 +51,7 @@ Open sentinel.conf - Run the following command in linux:
 
     $ nano sentinel.conf
 
-Uncomment the #vivo_conf line, at the top of the file, then adjust the path to your Masternode’s vivo.conf. Save the file then close it.
+Uncomment the #vivo_conf line, at the top of the file, then adjust the path to your Masternode’s adevplus20.conf. Save the file then close it.
 
     vivo_conf=/path/to/adevplus20.conf
 
