@@ -17,11 +17,11 @@ def get_vivo_conf():
     home = os.environ.get('HOME')
 
     if sys.platform == 'darwin':
-        vivo_conf = os.path.join(home, "Library/Application Support/VivoCore/vivo.conf")
+        vivo_conf = os.path.join(home, "Library/Application Support/adevplus20/adevplus20.conf")
     elif sys.platform == 'win32':
-        vivo_conf = os.path.join(os.environ['APPDATA'], "VivoCore/Vivo.conf")
+        vivo_conf = os.path.join(os.environ['APPDATA'], "adevplus20/adevplus20.conf")
     else:
-        vivo_conf = os.path.join(home, ".vivocore/vivo.conf")
+        vivo_conf = os.path.join(home, ".adevplus20/adevplus20.conf")
         vivo_conf = sentinel_cfg.get('vivo_conf', vivo_conf)
 
     return vivo_conf
