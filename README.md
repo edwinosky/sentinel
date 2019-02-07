@@ -1,26 +1,24 @@
-# Vivo Sentinel
+# ADV2 Sentinel
 
 
-Sentinel is an all-powerful toolset for Vivo.
+Sentinel is an all-powerful toolset for AdevPlus2.0.
 
-Sentinel is an autonomous agent for persisting, processing and automating Vivo V12.1 governance objects and tasks, and for expanded functions in upcoming releases.
+Sentinel is an autonomous agent for persisting, processing and automating governance, objects, and tasks
 
-Sentinel is implemented as a Python application that binds to a local version 12.1 vivod instance on each Vivo V12.1 Masternode.
+Sentinel is implemented as a Python application that binds Masternode.
 
-This guide covers installing Sentinel onto an existing 12.1 Masternode in Ubuntu 14.04 / 16.04.
-
-Alternatively to the guide on the Vivo website, you can also follow the simple step-by-step guide below. Before you proceed it is advisable to restart your masternode with -reindex to make sure you start off the steps fresh and fully synced - it will save you time later on in the guide as well.
+This guide covers installing Sentinel onto Masternode in Ubuntu 14.04 / 16.04.
 
 
-    cd .vivocore   // Adjust according to your root Vivo directory path
+    cd .adevplus20   // Adjust according to your root Vivo directory path
 
-    ./vivo-cli stop
+    ./adevplus20-cli stop
 
     rm mncache.dat
 
     rm mnpayments.dat
 
-    ./vivod -daemon -reindex
+    ./adevplus20d -reindex
 
 
 
@@ -37,15 +35,12 @@ Update system packages and ensure virtualenv is installed:
     $ sudo apt-get update
     $ sudo apt-get -y install python-virtualenv
 
-Make sure the local Vivo daemon running is at least version 12.1 (120100)
-
-    $ vivo-cli getinfo | grep version
 
 ### 2. Install Sentinel
 
 Clone the Sentinel repo and install Python dependencies.
 
-    $ git clone https://github.com/vivocoin/sentinel.git && cd sentinel
+    $ git clone https://github.com/edwinosky/sentinel.git && cd sentinel
     $ virtualenv ./venv
     $ ./venv/bin/pip install -r requirements.txt
 
@@ -58,13 +53,13 @@ Open sentinel.conf - Run the following command in linux:
 
 Uncomment the #vivo_conf line, at the top of the file, then adjust the path to your Masternode’s vivo.conf. Save the file then close it.
 
-    vivo_conf=/path/to/vivo.conf
+    vivo_conf=/path/to/adevplus20.conf
 
 Now run:
 
     $ venv/bin/python bin/sentinel.py
 
-You should see: “vivod not synced with network! Awaiting full sync before running Sentinel.”
+You should see: “adevplus20d not synced with network! Awaiting full sync before running Sentinel.”
 This is exactly what we want to see at this stage.
 
 If the wallet has been resynched alreaedy, you will see no output which is what you want to see and it means you can skip the next sync step.
@@ -75,12 +70,12 @@ If the wallet has been resynched alreaedy, you will see no output which is what 
 Go back into your root Vivo directory, then check the status of your sync:
 
     cd .. 
-    ./vivo-cli mnsync status
+    ./adevplus20-cli mnsync status
 
 
 This is what you’re waiting to see:
 
-AssetId 999, all trues, one false, and a FINISHED. Keep issuing ./vivo-cli mnsync status until it looks like this:
+AssetId 999, all trues, one false, and a FINISHED. Keep issuing ./adevplus20-cli mnsync status until it looks like this:
 
 
     {
@@ -125,7 +120,7 @@ Run:
 
 Add the following line below to the end of the file:
 
-    * * * * * cd /home/YOURUSERNAME/.vivocore/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log
+    * * * * * cd /home/YOURUSERNAME/.adevplus20/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log
     
 
 Make sure you:
@@ -137,13 +132,13 @@ Save and exit.
 
 ## 8. All Done On Sentinel. Finally Check Your Masternode
 
-Go back into your Vivo root directory:
+Go back into your ADV2 root directory:
 
     cd ..
 
 Run:
 
-    ./vivo-cli masternode debug
+    ./adevplus20-cli masternode debug
 
 You should see the message “Masternode successfully started.”. If you have followed all the steps outlined in the guide accurately and achieved this result - this is it, you've made it. Congratulations!
 
