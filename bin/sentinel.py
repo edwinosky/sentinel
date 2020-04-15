@@ -162,12 +162,12 @@ def main():
 
     # check vivod connectivity
     if not is_vivod_port_open(vivod):
-        print("Cannot connect to adevplus20d. Please ensure adevplus20d is running and the JSONRPC port is open to Sentinel.")
+        print("Cannot connect to coind. Please ensure coind is running and the JSONRPC port is open to Sentinel.")
         return
 
     # check vivod sync
     if not vivod.is_synced():
-        print("adevplus20d not synced with network! Awaiting full sync before running Sentinel.")
+        print("coind not synced with network! Awaiting full sync before running Sentinel.")
         return
 
     # ensure valid masternode
