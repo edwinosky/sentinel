@@ -96,7 +96,7 @@ def main():
         sys.exit(1)
 
     if not has_vivo_conf():
-        print("VivoCore must be installed and configured, including JSONRPC access in vivo.conf")
+        print("Your Coin Core must be installed and configured, including JSONRPC access in coind.conf")
         sys.exit(1)
 
 
