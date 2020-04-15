@@ -1,7 +1,7 @@
-# ADV2 Sentinel
+# Sentinel
 
 
-Sentinel is an all-powerful toolset for AdevPlus2.0.
+Sentinel is an all-powerful.
 
 Sentinel is an autonomous agent for persisting, processing and automating governance, objects, and tasks
 
@@ -10,15 +10,15 @@ Sentinel is implemented as a Python application that binds Masternode.
 This guide covers installing Sentinel onto Masternode in Ubuntu 14.04 / 16.04.
 
 
-    cd .adevplus20   // Adjust according to your root Vivo directory path
+    cd .safecrex   // Adjust according to your root SafeCrex directory path
 
-    ./adevplus20-cli stop
+    ./safecrex-cli stop
 
     rm mncache.dat
 
     rm mnpayments.dat
 
-    ./adevplus20d -reindex
+    ./safecrexd -reindex
 
 
 
@@ -51,31 +51,31 @@ Open sentinel.conf - Run the following command in linux:
 
     $ nano sentinel.conf
 
-Uncomment the #vivo_conf line, at the top of the file, then adjust the path to your Masternode’s adevplus20.conf. Save the file then close it.
+Adjust the path to your Masternode’s safecrex.conf. Save the file then close it.
 
-    vivo_conf=/path/to/adevplus20.conf
+    vivo_conf=/path/to/safecrex.conf
 
 Now run:
 
     $ venv/bin/python bin/sentinel.py
 
-You should see: “adevplus20d not synced with network! Awaiting full sync before running Sentinel.”
+You should see: “coind not synced with network! Awaiting full sync before running Sentinel.”
 This is exactly what we want to see at this stage.
 
 If the wallet has been resynched alreaedy, you will see no output which is what you want to see and it means you can skip the next sync step.
 
 
-## 4. Check That Your ADV2 Wallet is Synced 
+## 4. Check That Your Wallet is Synced 
 
 Go back into your root Vivo directory, then check the status of your sync:
 
     cd .. 
-    ./adevplus20-cli mnsync status
+    ./safecrex-cli mnsync status
 
 
 This is what you’re waiting to see:
 
-AssetId 999, all trues, one false, and a FINISHED. Keep issuing ./adevplus20-cli mnsync status until it looks like this:
+AssetId 999, all trues, one false, and a FINISHED. Keep issuing ./safecrex-cli mnsync status until it looks like this:
 
 
     {
@@ -120,7 +120,7 @@ Run:
 
 Add the following line below to the end of the file:
 
-    * * * * * cd /home/YOURUSERNAME/.adevplus20/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log
+    * * * * * cd /home/YOURUSERNAME/.safecrex/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log
     
 
 Make sure you:
@@ -132,13 +132,13 @@ Save and exit.
 
 ## 8. All Done On Sentinel. Finally Check Your Masternode
 
-Go back into your ADV2 root directory:
+Go back into your Safecrex root directory:
 
     cd ..
 
 Run:
 
-    ./adevplus20-cli masternode status
+    ./safecrex-cli masternode status
 
 You should see the message “Masternode successfully started.”. If you have followed all the steps outlined in the guide accurately and achieved this result - this is it, you've made it. Congratulations!
 
